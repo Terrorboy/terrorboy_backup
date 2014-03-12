@@ -1,0 +1,8 @@
+http://php.net/manual/kr/features.http-auth.php
+
+function authenticate() {
+    header('WWW-Authenticate: Basic realm="테스트 인증 시스템"');
+    header('HTTP/1.0 401 Unauthorized');
+    echo "이 자원에 접근하기 위해서는 유효한 로그인 ID와 패스워드를 입력해야 합니다.\n";
+    exit;
+}
