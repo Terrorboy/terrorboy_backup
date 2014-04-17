@@ -27,7 +27,7 @@ AjaxTB.prototype = {
 
 		var data = $.ajax({   
 				type: "POST",
-				url: this.UserURL+this.Search,
+				url: this.UserURL+encodeURI(this.Search),
 				async: false,
 				error:function(request,status,error){
 					console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
@@ -81,7 +81,7 @@ AjaxFormTB.prototype = {
 			
 			var data = $.ajax({   
 					type: "GET",
-					url: this.UserURL + '?' + this.Search,
+					url: this.UserURL + '?' + encodeURI(this.Search),
 					async: false,
 					error:function(request,status,error){
 						console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
@@ -102,6 +102,7 @@ AjaxFormTB.prototype = {
 					type: "POST",
 					url: this.UserURL,
 					data : this.Search,
+					contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 					async: false,
 					error:function(request,status,error){
 						console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);

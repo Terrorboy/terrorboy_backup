@@ -1,10 +1,10 @@
-TBAjax ì‚¬ìš©ë²•
+TBAjax »ç¿ë¹ı
 ---
-var SearchSubAdmin = new AjaxTB(ì¶œë ¥ íƒ€ê²Ÿ, í†µì‹ í•œ í˜ì´ì§€ í’€url, ì¡°ê±´ê°’? í¬í•¨);
+var SearchSubAdmin = new AjaxTB(Ãâ·Â Å¸°Ù, Åë½ÅÇÑ ÆäÀÌÁö Ç®url, Á¶°Ç°ª? Æ÷ÇÔ);
 SearchSubAdmin.Sender();
 
 
-TBAjax ë™ì‘ì˜ˆì œ
+TBAjax µ¿ÀÛ¿¹Á¦
 ---
 ```
 <script type="text/javascript">
@@ -22,12 +22,12 @@ $(function(){
 
 
 
-TBAjaxForm ì‚¬ìš©ë²•
+TBAjaxForm »ç¿ë¹ı
 ---
-<form action="í†µì‹ ìœ„ì¹˜" method="ë©§ì†Œë“œ" id="TBAjaxForm" target="ì¶œë ¥í•  ë·°ì–´ ê°ì²´">
+<form action="Åë½ÅÀ§Ä¡" method="¸ä¼Òµå" id="TBAjaxForm" target="Ãâ·ÂÇÒ ºä¾î °´Ã¼">
 
 
-TBAjaxForm ë™ì‘ì˜ˆì œ
+TBAjaxForm µ¿ÀÛ¿¹Á¦
 ---
 ```
 <form action="test2.php" method="GET" id="TBAjaxForm" target="#LoadView">
@@ -37,7 +37,7 @@ TBAjaxForm ë™ì‘ì˜ˆì œ
 	</select>
 	<input type="radio" name="radio" value="radio" checked>
 	<input type="checkbox" name="checkbox" value="checkbox" checked>
-	<input type="submit" value="ì „ì†¡">
+	<input type="submit" value="Àü¼Û">
 </form>
 <div id="LoadView"></div>
 ```
