@@ -1,0 +1,9 @@
+body { margin:0 auto; }
+#status {
+	border: 1px solid #84C03A;
+	background-color: #D1FCB3;
+	border-radius: 3px;
+	padding: 4px;
+	color: #84C03A;
+	font-size: 12px;
+}

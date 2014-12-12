@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>TerrorBoy</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="./css/style.css">
+		<script src="./js/jquery-1.8.3.min.js"></script>
+		<script src="./js/tb.ajax.js"></script>
+		<script src="./js/nw-desktop-notifications.js"></script>
+		<script src="./js/util.js"></script>
+		<script src="./js/main.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+
+			// 초기 노티피케이션 실행
+			TBnotification();
+
+			// 타이머 테스트
+			TimerView('#timer');
+
+			// 맥어드레스 출력
+			MacView('#macAdress');
+		});
+		</script>
+	</head>
+	<body>
+		<div id='status' style='display: none;'></div>
+
+		<div id="timer">타이머 대기중</div>
+		<div id="macAdress"></div>
+
+		<div>테스트 중입니다.</div>
+		<div>
+			<a href="#" onclick="ExERun('/exe/TimeGuard/TimeGuard.exe');">타임가드 실행</a>
+		</div>
+		<a href="#" class="ajax" data-src="./a.html">빨강보기</a> | <a href="#" class="ajax" data-src="./b.html">검정보기</a>
+		<div id="ajaxview">Ajax 통신 대기중</div>
+
+		<script type="text/javascript">
+		// ajax 통신
+		$('.ajax').on('click', function() {
+
+			$('#ajaxview').hide('slow');
+
+			var test = new AjaxTB('#ajaxview', $(this).attr('data-src'), '?');
+			test.Sender(true);
+			
+			$('#ajaxview').show('slow');
+		});
+		</script>
+	</body>
+</html>

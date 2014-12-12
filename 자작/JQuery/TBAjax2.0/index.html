@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title>TBAJAX Demo</title>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="tb.ajax-2.0.js"></script>
+		<style type="text/css">
+			h2:first-child{margin:0 0 10px 0;}
+			h2{margin:60px 0 10px 0; padding-left:0;}
+			blockquote{margin:0 0 20px 10px; background-color:#F9F9F9; border:1px solid #B8B8B8; padding:10px;}
+			blockquote > blockquote {background-color:#fff; margin:10px;}
+			code { padding: 2px 4px; color: #d14; white-space: normal; background-color: #f7f7f9; border: 1px solid #e1e1e8; font-size:12px;}
+		</style>
+	</head>
+	<body>
+
+		<div style="margin: 0 auto; text-align:center;">
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- Yobi for Terrorboy -->
+			<ins class="adsbygoogle"
+				 style="display:inline-block;width:728px;height:90px"
+				 data-ad-client="ca-pub-0406971418899993"
+				 data-ad-slot="3074786305"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div>
+
+
+
+
+		<div style="margin:10px; padding:10px; border: 1px solid #ccc;">
+			<h1>TBAjax 2.x 사용</h1>
+
+			<h2>TBAjax 호출</h2>
+			<blockquote>
+				<xmp><script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="tb.ajax-2.0.js"></script></xmp>
+			</blockquote>
+
+
+			<h2>TBAJAX 통신값 변수로 받기 설명</h2>
+			<blockquote>
+				<xmp><script type="text/javascript">
+var wow = $.TBAjax('통신URL', '파라미터(?부터 시작)', '로그 출력 여부');
+alert(wow);
+</script></xmp>
+			</blockquote>
+
+
+			<h2>TBAJAX 통신값 변수로 받기 소스</h2>
+			<blockquote>
+				<xmp><script type="text/javascript">
+var wow = $.TBAjax('./content/page.php', '?test=thk', 'true');
+alert(wow);
+</script></xmp>
+			</blockquote>
+
+
+			<h2>TBAJAX 옵션 Attribute</h2>
+			<blockquote>
+				<div style="color:#a349a4; font-size:11px">- <code>tb-ajax-target</code>의 객체 타입에 따라 출력 값이 다릅니다.</div>
+				<div style="margin-top:10px;">
+					<code>tb-ajax-action</code> 
+					<span style="font-size:11px">
+						TBAjax 가 동작 하기위한 액션을 설정 합니다. (<code>click</code>, <code>submit</code>, <code>load</code>)
+					</span>
+				</div>
+				<div>
+					<code>tb-ajax-target</code>
+					<span style="font-size:11px">
+						결과출력 할 객체를 설정 합니다.
+					</span>
+				</div>
+				<div>
+					<code>tb-ajax-url</code>
+					<span style="font-size:11px">
+						ajax 통신할 주소를 설정 합니다. <span style="color:#ff7f27">* form일경우 제외</span>
+					</span>
+				</div>
+				<div>
+					<code>tb-ajax-data</code>
+					<span style="font-size:11px">
+						통신할 파라미터를 설정 합니다. (예: <code>?name=홍길동</code>) <span style="color:#ff7f27">* form일경우 제외</span>
+					</span>
+				</div>
+				<div>
+					<code>tb-ajax-log</code>
+					<span style="font-size:11px">
+						통신 로그 출력 여부를 설정 합니다.
+					</span>
+				</div>
+			</blockquote>
+
+
+
+
+			<h2>tb-ajax-action="load" 소스</h2>
+			<blockquote>
+				<xmp><div id="LoadHtml" tb-ajax-action="load" tb-ajax-target="#LoadHtml" tb-ajax-url="./ajax/page.php" tb-ajax-data="?test=wow" tb-ajax-log="">대기중</div></xmp>
+			</blockquote>
+			<h2>tb-ajax-action="load" 결과</h2>
+			<blockquote>
+				<div id="LoadHtml" tb-ajax-action="load" tb-ajax-target="#LoadHtml" tb-ajax-url="./content/page.php" tb-ajax-data="?test=wow" tb-ajax-log="">대기중</div>
+			</blockquote>
+
+
+
+
+			<h2>tb-ajax-action="click" 소스</h2>
+			<blockquote>
+				<xmp><div id="foo">대기중</div>
+<a href="#" tb-ajax-action="click" tb-ajax-target="#foo" tb-ajax-url="./content/get.php" tb-ajax-data="?test=wow" tb-ajax-log="">불러오기</a>
+				</xmp>
+			</blockquote>
+
+			<h2>tb-ajax-action="click" 결과</h2>
+			<blockquote>
+				<div id="foo">대기중</div>
+				<a href="#s" tb-ajax-action="click" tb-ajax-target="#foo" tb-ajax-url="./content/get.php" tb-ajax-data="?test=wow" tb-ajax-log="">불러오기</a>
+			</blockquote>
+
+
+
+
+			<h2>tb-ajax-action="submit" GET 소스</h2>
+			<blockquote>
+				<xmp><div id="FormGet"></div>
+<form action="./content/get.php" method="get" tb-ajax-action="submit" tb-ajax-target="#FormGet" tb-ajax-log="">
+	<input type="text" name="test" value="sssss">
+	<input type="submit" value="전송">
+</form></xmp>
+			</blockquote>
+			<h2>tb-ajax-action="submit" GET 결과</h2>
+			<blockquote>
+				<div id="FormGet"></div>
+				<form action="./content/get.php" method="get" tb-ajax-action="submit" tb-ajax-target="#FormGet" tb-ajax-log="">
+					<input type="text" name="test" value="sssss">
+					<input type="submit" value="전송">
+				</form>
+			</blockquote>
+
+
+
+
+			<h2>tb-ajax-action="submit" POST 소스</h2>
+			<blockquote>
+				<xmp><div id="FormPost"></div>
+<form action="./content/file.php" enctype="multipart/form-data" method="post" tb-ajax-action="submit" tb-ajax-target="#FormPost" tb-ajax-log="">
+	<input type="text" name="test" value="sssss">
+	<input type="file" name="MyFile">
+	<input type="submit" value="전송">
+</form></xmp>
+			</blockquote>
+			<h2>tb-ajax-action="submit" POST 결과</h2>
+			<blockquote>
+				<div id="FormPost"></div>
+				<form action="./content/file.php" enctype="multipart/form-data" method="post" tb-ajax-action="submit" tb-ajax-target="#FormPost" tb-ajax-log="">
+					<input type="text" name="test" value="sssss">
+					<input type="file" name="MyFile">
+					<input type="submit" value="전송">
+				</form>
+			</blockquote>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+		<div style="margin:50px 10px 10px 10px; padding:10px; border: 1px solid #ccc;">
+			<h1>TBAjax 기존방식 사용</h1>
+
+			<h2>TBAjax 소스</h2>
+			<blockquote>
+				<xmp><html>
+	<head>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="tb.ajax.js"></script>
+		<script type="text/javascript">
+		$(function(){
+			var test = new AjaxTB('#page_view', './content/page.php', '?test=pageAjax&test2=hi');
+			test.Sender();
+		});
+		</script>
+	</head>
+	<body>
+		<div id="page_view"></div>
+	</body>
+</html>
+				</xmp>
+			</blockquote>
+
+			<h2>TBAjax 미리보기</h2>
+				<blockquote>
+				<script type="text/javascript">
+				$(function(){
+					var test = new AjaxTB('#page_view', './content/page.php', '?test=pageAjax&test2=hi');
+					test.Sender();
+				});
+				</script>
+				<div id="page_view"></div>
+			</blockquote>
+
+
+
+
+
+
+
+			<h2>TBAjaxForm GET 방식 소스</h2>
+			<blockquote>
+			<xmp><html>
+	<head>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="tb.ajax.js"></script>
+	</head>
+	<body>
+		<form action="./content/get.php" method="GET" id="TBAjaxForm" target="#get_view">
+			<input type="text" name="text" value="text">
+			<select name="selectbox">
+				<option value="selectbox" selected>selectbox</option>
+			</select>
+			<input type="radio" name="radio" value="radio" checked>
+			<input type="checkbox" name="checkbox" value="checkbox" checked>
+			<input type="submit" value="전송">
+		</form>
+		<div id="get_view">
+			<code>전송을 눌러주세요</code>
+		</div>
+	</body>
+</html>
+				</xmp>
+			</blockquote>
+
+			<h2>TBAjaxForm GET 방식 미리보기</h2>
+			<blockquote>
+				<form action="./content/get.php" method="GET" id="TBAjaxForm" target="#get_view">
+					<input type="text" name="text" value="text">
+					<select name="selectbox">
+						<option value="selectbox" selected>selectbox</option>
+					</select>
+					<input type="radio" name="radio" value="radio" checked>
+					<input type="checkbox" name="checkbox" value="checkbox" checked>
+					<input type="submit" value="전송">
+				</form>
+				<div id="get_view">
+					<code>전송을 눌러주세요</code>
+				</div>
+			</blockquote>
+
+
+
+			<h2>TBAjaxForm POST 방식 소스</h2>
+			<blockquote>
+				<xmp><html>
+	<head>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="tb.ajax.js"></script>
+	</head>
+	<body>
+		<form action="./content/post.php" method="POST" id="TBAjaxForm" target="#post_view">
+			<input type="text" name="text" value="text">
+			<select name="selectbox">
+				<option value="selectbox" selected>selectbox</option>
+			</select>
+			<input type="radio" name="radio" value="radio" checked>
+			<input type="checkbox" name="checkbox" value="checkbox" checked>
+			<input type="submit" value="전송">
+		</form>
+		<div id="post_view">
+			<code>전송을 눌러주세요</code>
+		</div>
+	</body>
+</html>
+				</xmp>
+			</blockquote>
+
+			<h2>TBAjaxForm POST 방식 미리보기</h2>
+			<blockquote>
+				<form action="./content/post.php" method="POST" id="TBAjaxForm" target="#post_view">
+					<input type="text" name="text" value="text">
+					<select name="selectbox">
+						<option value="selectbox" selected>selectbox</option>
+					</select>
+					<input type="radio" name="radio" value="radio" checked>
+					<input type="checkbox" name="checkbox" value="checkbox" checked>
+					<input type="submit" value="전송">
+				</form>
+				<div id="post_view">
+					<code>전송을 눌러주세요</code>
+				</div>
+			</blockquote>
+		</div>
+
+		<div style="margin: 0 auto; text-align:center;">
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- Yobi for Terrorboy -->
+			<ins class="adsbygoogle"
+				 style="display:inline-block;width:728px;height:90px"
+				 data-ad-client="ca-pub-0406971418899993"
+				 data-ad-slot="3074786305"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div>
+
+
+		<div style="margin:30px 0 10px 0; text-align:center;">Terrorboy ⓒ http://demo.foxrain.me/ajax2.0/</div>
+
+	</body>
+</html>

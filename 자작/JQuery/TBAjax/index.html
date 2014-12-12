@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>TBAJAX Demo</title>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="tb.ajax.js"></script>
+		<style type="text/css">
+			h2:first-child{margin:0 0 10px 0;}
+			h2{margin:60px 0 10px 0; padding-left:0;}
+			blockquote{margin:0 0 20px 10px; background-color:#F9F9F9; border:1px solid #B8B8B8; padding:10px;}
+			blockquote > blockquote {background-color:#fff; margin:10px;}
+			code { padding: 2px 4px; color: #d14; white-space: normal; background-color: #f7f7f9; border: 1px solid #e1e1e8; font-size:12px;}
+		</style>
+	</head>
+	<body>
+
+		<div style="margin: 0 auto; text-align:center;">
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- Yobi for Terrorboy -->
+			<ins class="adsbygoogle"
+				 style="display:inline-block;width:728px;height:90px"
+				 data-ad-client="ca-pub-0406971418899993"
+				 data-ad-slot="3074786305"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div>
+
+		<div style="margin:10; padding:10px; border: 1px solid #ccc;">
+			<h1>TBAjax 사용</h1>
+
+			<h2>TBAjax 소스</h2>
+			<blockquote>
+				<xmp><html>
+	<head>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="tb.ajax.js"></script>
+		<script type="text/javascript">
+		$(function(){
+			var test = new AjaxTB('#page_view', './content/page.php', '?test=pageAjax&test2=hi');
+			test.Sender();
+		});
+		</script>
+	</head>
+	<body>
+		<div id="page_view"></div>
+	</body>
+</html>
+				</xmp>
+			</blockquote>
+
+			<h2>TBAjax 미리보기</h2>
+				<blockquote>
+				<script type="text/javascript">
+				$(function(){
+					var test = new AjaxTB('#page_view', './content/page.php', '?test=pageAjax&test2=hi');
+					test.Sender();
+				});
+				</script>
+				<div id="page_view"></div>
+			</blockquote>
+
+
+
+
+
+
+
+			<h2>TBAjaxForm GET 방식 소스</h2>
+			<blockquote>
+			<xmp><html>
+	<head>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="tb.ajax.js"></script>
+	</head>
+	<body>
+		<form action="./content/get.php" method="GET" id="TBAjaxForm" target="#get_view">
+			<input type="text" name="text" value="text">
+			<select name="selectbox">
+				<option value="selectbox" selected>selectbox</option>
+			</select>
+			<input type="radio" name="radio" value="radio" checked>
+			<input type="checkbox" name="checkbox" value="checkbox" checked>
+			<input type="submit" value="전송">
+		</form>
+		<div id="get_view">
+			<code>전송을 눌러주세요</code>
+		</div>
+	</body>
+</html>
+				</xmp>
+			</blockquote>
+
+			<h2>TBAjaxForm GET 방식 미리보기</h2>
+			<blockquote>
+				<form action="./content/get.php" method="GET" id="TBAjaxForm" target="#get_view">
+					<input type="text" name="text" value="text">
+					<select name="selectbox">
+						<option value="selectbox" selected>selectbox</option>
+					</select>
+					<input type="radio" name="radio" value="radio" checked>
+					<input type="checkbox" name="checkbox" value="checkbox" checked>
+					<input type="submit" value="전송">
+				</form>
+				<div id="get_view">
+					<code>전송을 눌러주세요</code>
+				</div>
+			</blockquote>
+
+
+
+			<h2>TBAjaxForm POST 방식 소스</h2>
+			<blockquote>
+				<xmp><html>
+	<head>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="tb.ajax.js"></script>
+	</head>
+	<body>
+		<form action="./content/post.php" method="POST" id="TBAjaxForm" target="#post_view">
+			<input type="text" name="text" value="text">
+			<select name="selectbox">
+				<option value="selectbox" selected>selectbox</option>
+			</select>
+			<input type="radio" name="radio" value="radio" checked>
+			<input type="checkbox" name="checkbox" value="checkbox" checked>
+			<input type="submit" value="전송">
+		</form>
+		<div id="post_view">
+			<code>전송을 눌러주세요</code>
+		</div>
+	</body>
+</html>
+				</xmp>
+			</blockquote>
+
+			<h2>TBAjaxForm POST 방식 미리보기</h2>
+			<blockquote>
+				<form action="./content/post.php" method="POST" id="TBAjaxForm" target="#post_view">
+					<input type="text" name="text" value="text">
+					<select name="selectbox">
+						<option value="selectbox" selected>selectbox</option>
+					</select>
+					<input type="radio" name="radio" value="radio" checked>
+					<input type="checkbox" name="checkbox" value="checkbox" checked>
+					<input type="submit" value="전송">
+				</form>
+				<div id="post_view">
+					<code>전송을 눌러주세요</code>
+				</div>
+			</blockquote>
+		</div>
+
+		<div style="margin: 0 auto; text-align:center;">
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- Yobi for Terrorboy -->
+			<ins class="adsbygoogle"
+				 style="display:inline-block;width:728px;height:90px"
+				 data-ad-client="ca-pub-0406971418899993"
+				 data-ad-slot="3074786305"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div>
+
+
+		<div style="margin:30px 0 10px 0; text-align:center;">Terrorboy ⓒ http://demo.foxrain.me/ajax/</div>
+
+	</body>
+</html>
