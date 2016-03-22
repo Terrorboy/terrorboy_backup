@@ -57,6 +57,26 @@
 					if(LogView == 'true') console.log({"TarGet":Target, "URL":URL, "Data":SendData});
 				});
 			}
+			if(Action == 'change') {
+
+				$(this).on('change', function(e) {
+					e.preventDefault();
+
+					var data = $.ajax({   
+							type: "GET",
+							url: URL+encodeURI(SendData),
+							async: false,
+							error:function(request, status, error){
+								console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+							}
+					}).responseText;
+
+					if($(Target).is('textarea') || $(Target).is('input')) $(Target).val(data);
+					else $(Target).html(data);
+
+					if(LogView == 'true') console.log({"TarGet":Target, "URL":URL, "Data":SendData});
+				});
+			}
 			else if(Action == 'submit') {
 
 				$(this).on(Action, function(e) {
