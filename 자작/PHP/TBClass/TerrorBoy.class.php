@@ -609,7 +609,7 @@ class Terrorboy {
 	// 콘솔 (TB서버로 로그 날림)
 		public function TBConsole($Data='', $HeaderInfo='') {
 
-			$server = 'foxrain.me'; // 콘솔서버 주소
+			$server = 'z9n.net'; // 콘솔서버 주소
 			$port = 4000; // 콘솔 포트
 
 			if(is_array($Data)) $Data = http_build_query($Data);
@@ -673,7 +673,7 @@ class Terrorboy {
 	$tb->console2('user s
 	tyle333', 'color:#ff0000; font-weight:bold; font-size:20px;');
 	*/
-		public function console2($Data, $style='') {
+		function console2($Data, $style='') {
 
 			static $tb_console2 = true;
 
@@ -681,7 +681,8 @@ class Terrorboy {
 
 			if($tb_console2) {
 
-				echo "<script src='/js/log.min.js'></script>".PHP_EOL;
+				echo "<script>\r\n//<![CDATA[\r\nif(!console){var console={log:function(){}}}</script>".PHP_EOL;
+				echo "<script src='/include/js/log.min.js'></script>".PHP_EOL;
 				echo "<script>
 					var ConsoleLogBox = 'font-family: \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #fff; font-size: 20px; padding: 15px 20px; background: #444; border-radius: 4px; line-height: 100px; text-shadow: 0 1px #000';
 					var ConsoleLogCode = 'background: rgb(255, 255, 219); padding: 1px 5px; border: 1px solid rgba(0, 0, 0, 0.1)';
@@ -695,28 +696,35 @@ class Terrorboy {
 			else if($style == 'red') { $StyleCode = 'ConsoleLogFontRed'; }
 			else if($style == 'blue') { $StyleCode = 'ConsoleLogFontBlue'; }
 			else if($style) { $StyleCode = 'ConsoleLogUserStyle_'.$uniqid; }
-			
+
 			echo "<script>";
-
 			if($StyleCode == 'ConsoleLogUserStyle_'.$uniqid) echo 'var ConsoleLogUserStyle_'.$uniqid.' = "'.$style.'"; '.PHP_EOL;
-
 			if($style) {
 
 				$LogHeader = "%c";
 				$LogTail = ", $StyleCode";
 			}
-				
 
 			$output = explode("\r\n", $Data);
-			foreach($output as $line) { 
+			if(is_array($Data)) {
 
-				if(trim($line)) {
+				$lines = explode("\n", print_r($Data, true));
+				foreach($lines as $line2) {
 
+					if(trim($line2)) {
+
+						$line2 = addslashes($line2);
+						echo "log(\"{$LogHeader}".str_replace(array("\r\n","\r","\n"), '', $line2)."\"{$LogTail});".PHP_EOL;
+					}
+				}
+			}
+			else if(trim($output)) {
+
+				foreach($output as $line) {
 					$line = addslashes($line);
 					echo "log('{$LogHeader}{$line}'{$LogTail}); ".PHP_EOL;
 				}
 			}
-
 			echo "</script>".PHP_EOL;
 
 			$tb_console2 = false;
