@@ -268,6 +268,30 @@ class Terrorboy {
 
 
 	/* --------------------------------------------------------------------------- */
+	// Mysql 테이블의 정보 출력 (필드 데이터)
+		public function GetTableData($Table) {
+
+			// 초기값
+			$ColnumNum = 0;
+
+			// 테이블 컬럼 상세 정보
+			$ColumnResult = mysql_query(' show full columns from ' . $Table);
+			$CommentData = array();
+			while($ColumnData = mysql_fetch_assoc($ColumnResult)){
+
+				$Column[$ColnumNum]['field'] = $ColumnData['Field'];
+				$Column[$ColnumNum]['type'] = $ColumnData['Type'];
+				$Column[$ColnumNum]['null'] = $ColumnData['Null'];
+				$Column[$ColnumNum]['default'] = $ColumnData['Default'];
+				$Column[$ColnumNum]['comment'] = $ColumnData['Comment'];
+				$ColnumNum++;
+			}
+
+			return $Column;
+		}
+
+
+	/* --------------------------------------------------------------------------- */
 	// 날짜를 요일로 변경
 		public function DayOfTheWeek($date) {
 
@@ -629,32 +653,23 @@ class Terrorboy {
 
 	/* --------------------------------------------------------------------------- */
 	// array를 자바스크립트 콘솔로 출력 한다. (http://kr1.php.net/print_r#96859)
-		public function console($data) {
+		public function console($Data) {
 
 			echo "<script>\r\n//<![CDATA[\r\nif(!console){var console={log:function(){}}}".PHP_EOL;
-			$output = explode("\n", print_r($data, true));
 
-			foreach($output as $line) { 
+			$output = explode("\r\n", $Data);
+			if(is_array($Data)) {
 
-				if(is_array($line)) {
+				$lines = json_encode($Data);
+				echo "console.table({$lines});".PHP_EOL;
+			}
+			else if(trim($output)) {
 
-					$lines = explode("\n", print_r($line, true));
-					foreach($lines as $line2) {
-
-						if(trim($line2)) {
-
-							$line2 = addslashes($line2);
-							echo "console.log(\"".str_replace(array("\r\n","\r","\n"), '', $line2)."\");".PHP_EOL;
-						}
-					}
-				}
-				else if(trim($line)) {
-
+				foreach($output as $line) {
 					$line = addslashes($line);
 					echo "console.log(\"".str_replace(array("\r\n","\r","\n"), '', $line)."\");".PHP_EOL;
 				}
 			}
-
 			echo "\r\n//]]>\r\n</script>".PHP_EOL;
 		}
 
@@ -708,15 +723,8 @@ class Terrorboy {
 			$output = explode("\r\n", $Data);
 			if(is_array($Data)) {
 
-				$lines = explode("\n", print_r($Data, true));
-				foreach($lines as $line2) {
-
-					if(trim($line2)) {
-
-						$line2 = addslashes($line2);
-						echo "log(\"{$LogHeader}".str_replace(array("\r\n","\r","\n"), '', $line2)."\"{$LogTail});".PHP_EOL;
-					}
-				}
+				$lines = json_encode($Data);
+				echo "console.table({$lines});".PHP_EOL;
 			}
 			else if(trim($output)) {
 
