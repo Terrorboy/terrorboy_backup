@@ -633,7 +633,7 @@ class Terrorboy {
 	// 콘솔 (TB서버로 로그 날림)
 		public function TBConsole($Data='', $HeaderInfo='') {
 
-			$server = 'z9n.net'; // 콘솔서버 주소
+			$server = 'log.z9n.net'; // 콘솔서버 주소
 			$port = 80; // 콘솔 포트
 
 			if(is_array($Data)) $Data = http_build_query($Data);
